@@ -7,7 +7,7 @@ public:
 	bool Initialize();
 	void Run();
 	~Game();
-private:
+private: 
 	//private functions
 public:
 	Graphics *m_graphics;
