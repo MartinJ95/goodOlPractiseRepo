@@ -1,6 +1,8 @@
 // PractiseProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+// Created by Calum Murray, 2021
+
 #include "pch.h"
 #include "iostream"
 #include "Game.h"
@@ -8,7 +10,6 @@
 #include <SFML/Graphics.hpp>
 
 using namespace std;
-//using namespace sf;
 
 int main()
 {

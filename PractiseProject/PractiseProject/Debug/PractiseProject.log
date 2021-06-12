@@ -1,4 +1,8 @@
-﻿  Game.cpp
+﻿  Bullet.cpp
+  Game.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(77,62): error C2679: binary '=': no operator found which takes a right-hand operand of type 'sf::Vector2f' (or there is no acceptable conversion)
+D:\Game Development\C++\PractiseProject\PractiseProject\Resources\SFML-2.5.1\include\SFML\System\Vector2.hpp(77,1): message : could be 'sf::Vector2<int> &sf::Vector2<int>::operator =(sf::Vector2<int> &&)'
+D:\Game Development\C++\PractiseProject\PractiseProject\Resources\SFML-2.5.1\include\SFML\System\Vector2.hpp(77,1): message : or       'sf::Vector2<int> &sf::Vector2<int>::operator =(const sf::Vector2<int> &)'
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(77,62): message : while trying to match the argument list '(sf::Vector2i, sf::Vector2f)'
   main.cpp
   Generating Code...
-  PractiseProject.vcxproj -> D:\Game Development\C++\PractiseProject\Debug\PractiseProject.exe
