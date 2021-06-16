@@ -1,20 +1,23 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-
-using namespace sf;
+#include <SFML\Graphics.hpp>
+#include <iostream>
 
 class Bullet
 {
+private:
+	sf::CircleShape shape;
+
+	sf::Vector2f direction;
+	float movementSpeed;
+
 public:
-	CircleShape shape;
-	Vector2f currentVelocity;
-	float maxSpeed;
+	Bullet();
+	Bullet(float posX, float posY, float dirX, float dirY, float movementSpeed);
+	virtual ~Bullet();
 
-	Bullet(float radious = 5.0f) : currentVelocity(0.0f, 0.0f), maxSpeed(15.0f)
-	{
-		this->shape.setRadius(radious);
-		this->shape.setFillColor(Color::Red);
-	};
+	const sf::FloatRect getBounds();
 
+	void Update();
+	void Render(sf::RenderTarget* target);
 };
 

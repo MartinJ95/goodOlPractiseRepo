@@ -1,6 +1,3 @@
-// PractiseProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 // Created by Calum Murray, 2021
 
 #include "pch.h"

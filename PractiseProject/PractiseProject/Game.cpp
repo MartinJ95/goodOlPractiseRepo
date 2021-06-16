@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <iostream>
 #include "Game.h"
+#include "Vector.h"
 #include "Bullet.h"
 #include <SFML/Graphics.hpp>
 
@@ -20,7 +21,7 @@ bool Game::Initialize()
     this->videoMode.height = 600;
     this->videoMode.width = 800;
 
-    this->window = new RenderWindow(this->videoMode, "Cal Engine", sf::Style::Titlebar | sf::Style::Close);
+    this->window = new RenderWindow(this->videoMode, "Calum's Engine", sf::Style::Titlebar | sf::Style::Close);
 
 	this->window->setFramerateLimit(60);
 
@@ -50,35 +51,89 @@ void Game::Update()
 {
 	this->PollEvents();
 
-	this->UpdateMousePositions();
-
 	this->UpdatePlayer();
-}
 
-void Game::UpdateMousePositions()
-{
-	/*
-		Updates the mose positions relative to the game window
-	*/
+	this->UpdateControls();
 
-	this->mousePosWindow = Mouse::getPosition(*this->window);
+	this->UpdateBullets();
+
+	this->UpdateAttack();
 }
 
 void Game::InitPlayer()
 {
-	player.setRadius(25.0f);
+	this->player.setRadius(25.0f);
 	this->player.setFillColor(Color::White);
+
+	this->attackCooldownMax = 10.0f;
+	this->attackCooldown = this->attackCooldownMax;
 }
 
 void Game::UpdatePlayer()
 {
 	playerCenter = Vector2f(player.getPosition().x + player.getRadius(), player.getPosition().y + player.getRadius());
-	mousePosWindow = Vector2f(Mouse::getPosition(*this->window));
-	aimDir = mousePosWindow - playerCenter;
-	aimDirNormalized = sqrt(pow(aimDir.x,2) + pow(aimDir.y, 2));
+	mousePosWindow = Vector(Mouse::getPosition(*this->window));
+	aimDir = (mousePosWindow - playerCenter).Normalized();
 
-	cout << aimDirNormalized.x << " " << aimDirNormalized.y << "\n";
+	//cout << aimDir.x << " " << aimDir.y << "\n";
 }
+
+void Game::UpdateControls()
+{
+	if (Keyboard::isKeyPressed(Keyboard::A))
+		player.move(-5.0f, 0.0f);
+	if (Keyboard::isKeyPressed(Keyboard::D))
+		player.move(5.0f, 0.0f);
+	if (Keyboard::isKeyPressed(Keyboard::W))
+		player.move(0.0f, -5.0f);
+	if (Keyboard::isKeyPressed(Keyboard::S))
+		player.move(0.0f, 5.0f);
+
+	if(Mouse::isButtonPressed(Mouse::Left) && this->CanAttack())
+	{
+		//cout << "Fire";
+		this->bullets.emplace_back(new Bullet(player.getPosition().x, player.getPosition().y, aimDir.x, aimDir.y,  5.5f));
+	}
+}
+
+void Game::UpdateBullets()
+{
+	unsigned counter = 0;
+	for (auto *bullets : this->bullets)
+	{
+		bullets->Update();
+
+		// Bullet culling (top of the screen)
+		if (bullets->getBounds().top + bullets->getBounds().height < 0.0f)
+		{
+			// Delete bullet
+			this->bullets.erase(this->bullets.begin() + counter);
+			--counter;
+		}
+
+		++counter;
+	}
+}
+
+void Game::UpdateAttack()
+{
+	if (this->attackCooldown < this->attackCooldownMax)
+	{
+		this->attackCooldown += 0.5f;
+	}
+}
+
+const bool Game::CanAttack()
+{
+	if (this->attackCooldown >= this->attackCooldownMax)
+	{
+		this->attackCooldown = 0.0f;
+		return true;
+	}
+
+	return false;
+}
+
 
 void Game::Render()
 {	/*
@@ -89,6 +144,11 @@ void Game::Render()
 	// Draw game objects
 	this->window->draw(this->enemy);
 	this->window->draw(this->player);
+
+	for (auto *bullets : this->bullets)
+	{
+		bullets->Render(this->window);
+	}
 
 	// draw game objects
 	this->window->display();

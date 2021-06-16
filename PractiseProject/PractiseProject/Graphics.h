@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+using namespace sf;
+
 class Graphics
 {
 public:
@@ -8,6 +10,6 @@ public:
 	bool Initialize();
 	~Graphics();
 public:
-	//sf::RenderWindow *m_window;
+	//RenderWindow *m_window;
 };
 
