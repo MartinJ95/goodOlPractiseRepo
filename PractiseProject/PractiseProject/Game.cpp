@@ -9,13 +9,20 @@ using namespace std;
 
 Game::Game()
 {
-	this->InitPlayer();
 	this->InitEnemies();
 }
 
 bool Game::Initialize()
 {
 	//game set up here
+	// Entities here
+	entities.emplace_back(new Player());
+
+	for (int i = 0; i < entities.size(); i++)
+	{
+		entities[i]->Start();
+	}
+	
     this->window = nullptr;
 
     this->videoMode.height = 600;
@@ -50,90 +57,7 @@ const bool Game::isRunning() const
 void Game::Update()
 {
 	this->PollEvents();
-
-	this->UpdatePlayer();
-
-	this->UpdateControls();
-
-	this->UpdateBullets();
-
-	this->UpdateAttack();
 }
-
-void Game::InitPlayer()
-{
-	this->player.setRadius(25.0f);
-	this->player.setFillColor(Color::White);
-
-	this->attackCooldownMax = 10.0f;
-	this->attackCooldown = this->attackCooldownMax;
-}
-
-void Game::UpdatePlayer()
-{
-	playerCenter = Vector2f(player.getPosition().x + player.getRadius(), player.getPosition().y + player.getRadius());
-	mousePosWindow = Vector(Mouse::getPosition(*this->window));
-	aimDir = (mousePosWindow - playerCenter).Normalized();
-
-	//cout << aimDir.x << " " << aimDir.y << "\n";
-}
-
-void Game::UpdateControls()
-{
-	if (Keyboard::isKeyPressed(Keyboard::A))
-		player.move(-5.0f, 0.0f);
-	if (Keyboard::isKeyPressed(Keyboard::D))
-		player.move(5.0f, 0.0f);
-	if (Keyboard::isKeyPressed(Keyboard::W))
-		player.move(0.0f, -5.0f);
-	if (Keyboard::isKeyPressed(Keyboard::S))
-		player.move(0.0f, 5.0f);
-
-	if(Mouse::isButtonPressed(Mouse::Left) && this->CanAttack())
-	{
-		//cout << "Fire";
-		this->bullets.emplace_back(new Bullet(player.getPosition().x, player.getPosition().y, aimDir.x, aimDir.y,  5.5f));
-	}
-}
-
-void Game::UpdateBullets()
-{
-	unsigned counter = 0;
-	for (auto *bullets : this->bullets)
-	{
-		bullets->Update();
-
-		// Bullet culling (top of the screen)
-		if (bullets->getBounds().top + bullets->getBounds().height < 0.0f)
-		{
-			// Delete bullet
-			this->bullets.erase(this->bullets.begin() + counter);
-			--counter;
-		}
-
-		++counter;
-	}
-}
-
-void Game::UpdateAttack()
-{
-	if (this->attackCooldown < this->attackCooldownMax)
-	{
-		this->attackCooldown += 0.5f;
-	}
-}
-
-const bool Game::CanAttack()
-{
-	if (this->attackCooldown >= this->attackCooldownMax)
-	{
-		this->attackCooldown = 0.0f;
-		return true;
-	}
-
-	return false;
-}
-
 
 void Game::Render()
 {	/*
@@ -143,13 +67,13 @@ void Game::Render()
 
 	// Draw game objects
 	this->window->draw(this->enemy);
-	this->window->draw(this->player);
 
-	for (auto *bullets : this->bullets)
+	for(int i = 0; i < entities.size(); i++)
 	{
-		bullets->Render(this->window);
+		entities[i]->Update(this);
+		entities[i]->Draw(window);
 	}
-
+	
 	// draw game objects
 	this->window->display();
 }

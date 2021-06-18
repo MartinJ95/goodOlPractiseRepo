@@ -1,6 +1,7 @@
 #pragma once
 #include "Graphics.h"
 #include "Vector.h"
+#include "Entity.h"
 
 using namespace sf;
 using namespace std;
@@ -18,44 +19,27 @@ public:
 private: 
 	//private functions
 		// create the window
-    RenderWindow* window;
+
 	VideoMode videoMode;
 	Event ev;
 
 	// Game objects
 	RectangleShape enemy;
-	CircleShape player;
-
-	// Vectors
-	Vector mousePosWindow;
-	Vector playerCenter;
-	Vector aimDir;
-	Vector aimDirNorm;
-
-	vector<Bullet*> bullets;
-
-
-	float attackCooldown;
-	float attackCooldownMax;
 
 	// Functions
-	void InitPlayer();
 	void InitEnemies();
 
-	void UpdatePlayer();
-	void UpdateControls();
-	void UpdateBullets();
-
 public:
+	RenderWindow* window;
 	Graphics *m_graphics;
+
+	std::vector<Bullet*> bullets;
+	vector<Entity*> entities;
 
 	const bool isRunning() const;
 
 	void Render();
 	void Update();
 	void PollEvents();
-
-	void UpdateAttack();
-	const bool CanAttack();
 };
 

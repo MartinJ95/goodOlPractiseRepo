@@ -3,7 +3,7 @@
 
 Bullet::Bullet()
 {
-
+	
 }
 
 Bullet::Bullet(float posX, float posY, float dirX, float dirY, float movementSpeed)
@@ -17,6 +17,33 @@ Bullet::Bullet(float posX, float posY, float dirX, float dirY, float movementSpe
 	this->movementSpeed = movementSpeed;
 }
 
+void Bullet::Update(Game *ourGame)
+{
+	// Movement
+	this->shape.move(this->movementSpeed * this->direction);
+
+	if(shape.getGlobalBounds().top + shape.getGlobalBounds().height < 0.0f)
+	{
+		m_active = false;
+	}
+
+	//unsigned counter = 0;
+	//for (auto *bullets : bullets)
+	//{
+	//	bullets->Update();
+
+	//	// Bullet culling (top of the screen)
+	//	if (bullets->getBounds().top + bullets->getBounds().height < 0.0f)
+	//	{
+	//		// Delete bullet
+	//		bullets.erase(bullets.begin() + counter);
+	//		--counter;
+	//	}
+
+	//	++counter;
+	//}
+}
+
 Bullet::~Bullet()
 {
 }
@@ -26,13 +53,7 @@ const sf::FloatRect Bullet::getBounds()
 	return this->shape.getGlobalBounds();
 }
 
-void Bullet::Update()
+void Bullet::Draw(sf::RenderWindow* window)
 {
-	// Movement
-	this->shape.move(this->movementSpeed * this->direction);
-}
-
-void Bullet::Render(sf::RenderTarget* target)
-{
-	target->draw(this->shape);
+	window->draw(this->shape);
 }

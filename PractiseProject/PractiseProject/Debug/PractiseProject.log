@@ -1,4 +1,4 @@
-﻿  Game.cpp
+﻿  Bullet.cpp
 D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
           [
@@ -9,4 +9,29 @@ D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning
           [
               T=int
           ]
+  Game.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(71,19): warning C4018: '<': signed/unsigned mismatch
+  Player.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Generating Code...
   PractiseProject.vcxproj -> D:\Game Development\C++\PractiseProject\Debug\PractiseProject.exe
