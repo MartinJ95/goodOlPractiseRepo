@@ -9,6 +9,28 @@ D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning
           [
               T=int
           ]
+  Enemy.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Entity.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
   Game.cpp
 D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
@@ -20,9 +42,21 @@ D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning
           [
               T=int
           ]
-D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
-D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(71,19): warning C4018: '<': signed/unsigned mismatch
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(20,20): warning C4018: '<': signed/unsigned mismatch
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(68,19): warning C4018: '<': signed/unsigned mismatch
+  Graphics.cpp
   Player.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  main.cpp
 D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
           [

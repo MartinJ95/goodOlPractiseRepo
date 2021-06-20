@@ -16,30 +16,25 @@ public:
 	void Run();
 	~Game();
 
-private: 
-	//private functions
-		// create the window
-
-	VideoMode videoMode;
-	Event ev;
-
-	// Game objects
-	RectangleShape enemy;
-
-	// Functions
-	void InitEnemies();
-
 public:
 	RenderWindow* window;
 	Graphics *m_graphics;
 
-	std::vector<Bullet*> bullets;
+	vector<Bullet*> bullets;
 	vector<Entity*> entities;
 
+public:
 	const bool isRunning() const;
 
 	void Render();
 	void Update();
 	void PollEvents();
+
+private:
+	VideoMode videoMode;
+	Event ev;
+
+private:
+	void SetUpWindow();
 };
 

@@ -20,7 +20,6 @@ void Player::Update(Game *ourGame)
 	playerCenter = Vector2f(player.getPosition().x + player.getRadius(), player.getPosition().y + player.getRadius());
 	mousePosWindow = Vector(Mouse::getPosition(*ourGame->window));
 	aimDir = (mousePosWindow - playerCenter).Normalized();
-
 	//cout << aimDir.x << " " << aimDir.y << "\n";
 
 	UpdateAttack();
@@ -36,8 +35,8 @@ void Player::Update(Game *ourGame)
 
 	if(Mouse::isButtonPressed(Mouse::Left) && this->CanAttack())
 	{
-		//cout << "Fire\n";
-		ourGame->entities.emplace_back(new Bullet(player.getPosition().x, player.getPosition().y, aimDir.x, aimDir.y,  6.0f));
+		//cout << "Fire" << endl;
+		ourGame->entities.emplace_back(new Bullet(player.getPosition().x, player.getPosition().y, aimDir.x, aimDir.y,  7.0f));
 		//cout << ourGame->bullets.size();
 	}
 }

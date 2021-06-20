@@ -9,9 +9,11 @@ class Player : public Entity
 {
 public:
 	Player();
+
 	void Start() override;
 	void Update(Game *ourGame) override;
 	void Draw(sf::RenderWindow* window) override;
+
 	const bool CanAttack();
 	void UpdateAttack();
 	virtual ~Player();
