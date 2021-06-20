@@ -6,17 +6,24 @@
 class Enemy : public Entity
 {
 public:
-	Enemy();
+	Enemy(float posX, float posY);
 
 public:
 	virtual ~Enemy();
-
-	sf::RectangleShape enemy;
 
 	void Start() override;
 	void Update(Game *ourGame) override;
 	void Draw(sf::RenderWindow* window) override;
 
-	void InitEnemies();
+private:
+	sf::RectangleShape enemy;
+	int type;
+	int health;
+	int maxHealth;
+	int damage;
+	int points;
+
+	void InitShape();
+	void InitVariables();
 };
 

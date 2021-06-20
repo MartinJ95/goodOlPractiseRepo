@@ -15,7 +15,7 @@ bool Game::Initialize()
 {
 	// Entities here
 	entities.emplace_back(new Player());
-	entities.emplace_back(new Enemy());
+	entities.emplace_back(new Enemy(50.0f, 50.0f));
 
 	for (int i = 0; i < entities.size(); i++)
 	{

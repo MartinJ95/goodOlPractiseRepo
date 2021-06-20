@@ -5,11 +5,14 @@
 #include "Game.h"
 #include "Vector.h"
 #include <SFML/Graphics.hpp>
+#include <time.h>
 
 using namespace std;
 
 int main()
 {
+	srand(static_cast<unsigned int>(time(0)));
+
 	Game ourGame;
 
 	if (ourGame.Initialize() == false)

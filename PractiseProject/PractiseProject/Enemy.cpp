@@ -3,12 +3,15 @@
 #include "Game.h"
 #include "Bullet.h"
 
-Enemy::Enemy()
-{}
+Enemy::Enemy(float posX, float posY)
+{
+	this->enemy.setPosition(posX, posY);
+}
 
 void Enemy::Start()
 {
-	InitEnemies();
+	InitShape();
+	InitVariables();
 }
 
 void Enemy::Update(Game* ourGame)
@@ -21,14 +24,19 @@ void Enemy::Draw(sf::RenderWindow* window)
 	window->draw(this->enemy);
 }
 
-void Enemy::InitEnemies()
+void Enemy::InitShape()
 {
-	this->enemy.setPosition(10.0f, 10.0f);
-	this->enemy.setSize(sf::Vector2f(100.0f, 100.0f));
-	this->enemy.setScale(sf::Vector2f(0.5f, 0.5f));
-	this->enemy.setFillColor(sf::Color::Cyan);
-	this->enemy.setOutlineColor(sf::Color::Green);
-	this->enemy.setOutlineThickness(1.0f);
+	this->enemy.setSize(sf::Vector2f(rand() % 80, rand() % 80));
+	this->enemy.setFillColor(sf::Color::Red);
+}
+
+void Enemy::InitVariables()
+{
+	this->type = 0;
+	this->health = 10;
+	this->maxHealth = 0;
+	this->damage = 1;
+	this->points = 5;
 }
 
 Enemy::~Enemy()

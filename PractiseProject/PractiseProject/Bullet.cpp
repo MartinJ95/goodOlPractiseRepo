@@ -8,7 +8,7 @@ Bullet::Bullet(float posX, float posY, float dirX, float dirY, float movementSpe
 {
 	//this->shape.setTexture(*texture);
 	this->shape.setRadius(10.0f);
-	this->shape.setFillColor(sf::Color::Red);
+	this->shape.setFillColor(sf::Color::Cyan);
 	this->shape.setPosition(posX, posY);
 	this->direction.x = dirX;
 	this->direction.y = dirY;
