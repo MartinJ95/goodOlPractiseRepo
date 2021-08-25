@@ -1,4 +1,4 @@
-﻿  Bullet.cpp
+﻿  Enemy.cpp
 D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
           [
@@ -9,4 +9,65 @@ D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning
           [
               T=int
           ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Enemy.cpp(22,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game Development\C++\PractiseProject\PractiseProject\Enemy.cpp(22,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game Development\C++\PractiseProject\PractiseProject\Enemy.cpp(34,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Enemy.cpp(34,42): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Entity.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Game.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(18,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(18,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(20,20): warning C4018: '<': signed/unsigned mismatch
+D:\Game Development\C++\PractiseProject\PractiseProject\Game.cpp(73,19): warning C4018: '<': signed/unsigned mismatch
+  Player.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  main.cpp
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(19,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game Development\C++\PractiseProject\PractiseProject\Vector.h(20,13): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Generating Code...
   PractiseProject.vcxproj -> D:\Game Development\C++\PractiseProject\Debug\PractiseProject.exe

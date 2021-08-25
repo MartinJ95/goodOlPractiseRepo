@@ -23,6 +23,9 @@ private:
 	int damage;
 	int points;
 
+	float spawnTimer;
+	float spawnTimerMax;
+
 	void InitShape();
 	void InitVariables();
 };

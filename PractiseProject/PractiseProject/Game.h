@@ -7,6 +7,7 @@ using namespace sf;
 using namespace std;
 
 class Bullet;
+class Enemy;
 
 class Game
 {
@@ -21,6 +22,7 @@ public:
 	Graphics *m_graphics;
 
 	vector<Bullet*> bullets;
+	vector<Enemy*> enemies;
 	vector<Entity*> entities;
 
 public:

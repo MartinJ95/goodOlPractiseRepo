@@ -40,11 +40,6 @@ float Vector::LengthSqr() const
 	return length;
 }
 
-Vector Vector::ConvertToSF()
-{
-	return Vector2f(x,y);
-}
-
 Vector Vector::Normalized() const
 {
 	Vector normalized;

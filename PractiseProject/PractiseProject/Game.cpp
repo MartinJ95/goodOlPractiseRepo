@@ -15,7 +15,7 @@ bool Game::Initialize()
 {
 	// Entities here
 	entities.emplace_back(new Player());
-	entities.emplace_back(new Enemy(50.0f, 50.0f));
+	entities.emplace_back(new Enemy(rand() % 200, rand() % 200));
 
 	for (int i = 0; i < entities.size(); i++)
 	{
@@ -35,6 +35,11 @@ void Game::Run()
 Game::~Game()
 {
     delete this->window;
+
+	for (auto* i : this->enemies)
+	{
+		delete i;
+	}
 }
 
 const bool Game::isRunning() const

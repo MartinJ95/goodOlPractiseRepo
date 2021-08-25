@@ -16,7 +16,12 @@ void Enemy::Start()
 
 void Enemy::Update(Game* ourGame)
 {
-
+	this->spawnTimer += 0.5f;
+	if (this->spawnTimer >= this->spawnTimerMax)
+	{
+		ourGame->enemies.push_back(new Enemy(rand() % 200, rand() % 200));
+		this->spawnTimer = 0.f;
+	}
 }
 
 void Enemy::Draw(sf::RenderWindow* window)
@@ -27,7 +32,10 @@ void Enemy::Draw(sf::RenderWindow* window)
 void Enemy::InitShape()
 {
 	this->enemy.setSize(sf::Vector2f(rand() % 80, rand() % 80));
-	this->enemy.setFillColor(sf::Color::Red);
+	this->enemy.setFillColor(sf::Color(rand() % 255, rand() % 255, rand() % 255, 255));
+
+	this->spawnTimerMax = 50.f;
+	this->spawnTimer = this->spawnTimerMax;
 }
 
 void Enemy::InitVariables()
@@ -40,5 +48,4 @@ void Enemy::InitVariables()
 }
 
 Enemy::~Enemy()
-{
-}
+{}
